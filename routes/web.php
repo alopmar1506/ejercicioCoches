@@ -23,6 +23,5 @@ Route::get('/crearCoche', [controllerConcesionario::class, 'create'])->name('cre
 Route::post('/concesionario',[controllerConcesionario::class,'store'])->name('guardarCoche');
 Route::get('/editarCoche/{id}', [controllerConcesionario::class, 'edit'])->name('editarCoche');
 Route::put('/concesionario/{id}', [controllerConcesionario::class, 'update'])->name('actualizarCoche');
-Route::delete('/concesionario/{id}', [controllerConcesionario::class, 'destroy'])->name('eliminarCoche');
 
 

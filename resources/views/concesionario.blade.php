@@ -17,7 +17,6 @@
     @foreach($coches as $coche)
         <li><a href="{{ route('mostrarCoche', $coche->id) }}">{{$coche->marca }}</a> - {{$coche->matricula }}</li>
         <a href="{{route('editarCoche',$coche->id)}}">Editar coche</a><br>
-        <a href="{{route('eliminarCoche',$coche->id)}}">Eliminar coche</a>
     @endforeach
 </ul>
 
