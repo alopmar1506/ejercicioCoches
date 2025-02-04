@@ -17,6 +17,11 @@
     @foreach($coches as $coche)
         <li><a href="{{ route('mostrarCoche', $coche->id) }}">{{$coche->marca }}</a> - {{$coche->matricula }}</li>
         <a href="{{route('editarCoche',$coche->id)}}">Editar coche</a><br>
+        <form action="{{route('eliminarCoche', $coche->id)}}" method=post onsubmit="return confirm('¿Estás seguro de que quieres eliminar este coche?')">
+            @csrf
+            @method('DELETE')
+            <button>Eliminar coche</button>
+        </form>
     @endforeach
 </ul>
 

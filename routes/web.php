@@ -20,8 +20,8 @@ Route::get('/', function () {
 Route::get('/concesionario', [controllerConcesionario::class,'index'])->name('concesionario');
 Route::get('/concesionario/{id}', [controllerConcesionario::class, 'show'])->name('mostrarCoche');
 Route::get('/crearCoche', [controllerConcesionario::class, 'create'])->name('crearCoche');
-Route::post('/concesionario',[controllerConcesionario::class,'store'])->name('guardarCoche');
+Route::put('/concesionario',[controllerConcesionario::class,'store'])->name('guardarCoche');
 Route::get('/editarCoche/{id}', [controllerConcesionario::class, 'edit'])->name('editarCoche');
 Route::put('/concesionario/{id}', [controllerConcesionario::class, 'update'])->name('actualizarCoche');
-
+Route::delete('/concesionario/{id}', [controllerConcesionario::class, 'destroy'])->name('eliminarCoche');
 

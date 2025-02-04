@@ -82,6 +82,6 @@ class controllerConcesionario extends Controller
     {
         $coche=Concesionario::findOrFail($id);
         $coche->delete();
-        return redirect()->route('concesionario')->with('success','Coche eliminado correctamente');
+        return redirect()->route('concesionario', $coche->id)->with('success','Coche eliminado correctamente');
     }
 }
