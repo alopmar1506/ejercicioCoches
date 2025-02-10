@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('modelo');
             $table->string('color');
             $table->string('matricula');
+            $table->boolean('activo')->default(false);
             $table->timestamps();
         });
     }

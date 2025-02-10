@@ -9,5 +9,7 @@ class Concesionario extends Model
 {
     use HasFactory;
     protected $table = 'concesionarios';
-    protected $fillable = ['marca', 'modelo', 'color', 'matricula'];
+    public function scopeColor($query){
+        $query->where('color', 'blanco');
+    }
 }

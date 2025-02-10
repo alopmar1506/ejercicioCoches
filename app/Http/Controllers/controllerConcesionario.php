@@ -9,14 +9,8 @@ class controllerConcesionario extends Controller
      */
     public function index(Request $request)
     {
-        $query=Concesionario::query();
-        $coches=Concesionario::all();
-        $modeloFiltrado=$request->marca;
-        if($request->has('marca')){ //COMPRUEBA QUE SE HAY UN CAMPO "NOMBRE"
-            $query->where('marca','like','%'.$request->marca.'%');
-        };
-        $coches= $query->get();
-        return view('concesionario',compact('coches'));
+        $colorCoche= Concesionario::color()->get();
+        return view('concesionario',compact('colorCoche',));
     }
 
     /**
@@ -74,7 +68,6 @@ class controllerConcesionario extends Controller
         $coche->update($request->all());
         return redirect()->route('concesionario')->with('success','Coche actualizado correctamente');
     }
-
     /**
      * Remove the specified resource from storage.
      */
