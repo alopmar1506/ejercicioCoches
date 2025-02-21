@@ -11,15 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('concesionarios', function (Blueprint $table) {
+        Schema::create('motos', function (Blueprint $table) {
             $table->id();
-            $table->string('marca');
-            $table->string('modelo');
-            $table->string('color');
-            $table->string('matricula');
-            $table->boolean('activo')->default(false);
+            $table->foreign('concesionario_id')->references('id')
+                ->on('concesionario')
+                ->onDelete('cascade');
             $table->timestamps();
-
         });
     }
 
@@ -28,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('concesionarios');
+        Schema::dropIfExists('motos');
     }
 };

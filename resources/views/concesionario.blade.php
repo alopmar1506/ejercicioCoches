@@ -72,25 +72,17 @@
     <input type="text" name="marca" placeholder="Buscar por modelo">
     <input type="submit" value="Filtrar">
 </form>
-
-<h2>Color y Marca de Coches</h2>
-<table>
-    <thead>
-    <tr>
-        <th>Marca</th>
-        <th>Color</th>
-    </tr>
-    </thead>
-    <tbody>
-    @foreach($colorCoche as $coche)
-        <tr>
-            <td>{{$coche->marca}}</td>
-            <td>{{$coche->color}}</td>
-        </tr>
+<ul>
+    @foreach($coches as $coche)
+        <li><a href="{{ route('mostrarCoche', $coche->id) }}">{{$coche->marca }}</a> - {{$coche->matricula }}</li>
+        <a href="{{route('editarCoche',$coche->id)}}">Editar coche</a><br>
+        <form action="{{route('eliminarCoche', $coche->id)}}" method=post onsubmit="return confirm('¿Estás seguro de que quieres eliminar este coche?')">
+            @csrf
+            @method('DELETE')
+            <button>Eliminar coche</button>
+        </form>
     @endforeach
-    </tbody>
-</table>
-
+</ul>
 <a href="{{route('crearCoche')}}">Crear coche</a>
 </body>
 </html>

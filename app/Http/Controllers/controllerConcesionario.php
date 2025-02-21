@@ -9,8 +9,9 @@ class controllerConcesionario extends Controller
      */
     public function index(Request $request)
     {
-        $colorCoche= Concesionario::color()->get();
-        return view('concesionario',compact('colorCoche',));
+        $concesionario= Concesionario::find(1);
+        $motos=$concesionario->motos;
+        $motosQuery=$concesionario->motos;
     }
 
     /**
